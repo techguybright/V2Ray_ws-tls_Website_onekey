@@ -609,7 +609,7 @@ modify_userjson(){
 
 #安装bbr端口加速
 rinetdbbr_install(){
-	export RINET_URL="https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey/raw/master/bbr/rinetd_bbr_powered"
+	export RINET_URL="https://github.com/techguybright/V2Ray_ws-tls_Website_onekey/blob/master/bbr/rinetd_bbr_powered"
 	IFACE=$(ip -4 addr | awk '{if ($1 ~ /inet/ && $NF ~ /^[ve]/) {a=$NF}} END{print a}')
 
 	curl -L "${RINET_URL}" >/usr/bin/rinetd-bbr
